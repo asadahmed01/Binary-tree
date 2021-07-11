@@ -82,4 +82,16 @@ public class binaryTree {
     // traverse and print right child
     traversePreOrde(root.right);
   }
+
+  public void traverseInOrder() {
+    traverseInOrder(root);
+  }
+
+  private void traverseInOrder(Node root) {
+    if (root == null)
+      return;
+    traverseInOrder(root.left);
+    System.out.println(root.value);
+    traverseInOrder(root.right);
+  }
 }
