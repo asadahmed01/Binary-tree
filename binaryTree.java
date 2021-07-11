@@ -21,16 +21,18 @@ public class binaryTree {
   private Node root;
 
   public void insert(int val) {
+    var node = new Node(val);
     // if the tree is empty
     if (root == null) {
-      root = new Node(val);
+      root = node;
       return;
     }
+
     var temp = root;
     while (true) {
       if (val < temp.value) {
         if (temp.left == null) {
-          temp.left = new Node(val);
+          temp.left = node;
           break;
         }
         temp = temp.left;
@@ -44,6 +46,23 @@ public class binaryTree {
         temp = temp.right;
       }
     }
+  }
+
+  public boolean find(int num) {
+    var current = root;
+    while (current != null) {
+      if (num < current.value) {
+        // go to the left side of the tree
+        current = current.left;
+      } else if (num > current.value) {
+        // go the right side of the tree
+        current = current.right;
+      } else {
+        return true;
+      }
+    }
+    return false;
+
   }
 
 }
