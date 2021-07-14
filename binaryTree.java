@@ -94,4 +94,17 @@ public class binaryTree {
     System.out.println(root.value);
     traverseInOrder(root.right);
   }
+
+  public void traversePostOrder() {
+    traversePostOrder(root);
+  }
+
+  private void traversePostOrder(Node root) {
+    // base condition
+    if (root == null)
+      return;
+    traversePostOrder(root.left);
+    traversePostOrder(root.right);
+    System.out.println(root.value);
+  }
 }
